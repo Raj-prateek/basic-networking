@@ -81,7 +81,70 @@ For devices on the same IP network:
 ARP sends a broadcast directed to the IP address of the destination device. The destination device responds with it's MAC address
 
 ```
-ARP -a # to get the list of all the IP's and MAC
+ARP -a # to get the list of all the IP's and MAC in ARP cache
 ARP -d * # to delete all the IP's and MAC
 ```
+
+#### OSI Model
+- Layer 7: Application Layer
+  - Network process to application
+  - DNS,WWW/HTTP, P2P, EMAIL/POP, SMTP, Telnet, FTP
+- Layer 6: Presentation Layer
+  - Data representation and encryption
+  - Recognizing data, HTML, DOC JPEG, MP3, AVI, Sockets.
+- Layer 5: Session Layer
+  - Interhost communication
+  - Session establishment in TCP, SIP, RTP, RPC-Named pipes
+- Layer 4: Transport
+  - End to end connections and reliability
+  - TCP, UDP, SCTP, SSL and TLS
+- Layer 3: Network (Routers)
+  - Path determination and logical addressing
+  - IP, ARP, IPsec, ICMP, IGMP, OSPF
+- Layer 2: Data Link (Switches)
+  - Physical addressing
+  - Ethernet, 802.11, MAC/LLC, VLAN, ATM, HDP, Fibre Channel, Frame Relay, HDLC, PPP, Q.921, Token Ring
+- Layer 1: Physical 
+  - Media, Signal, and binary transmission
+  - RS-232, Rj45, V.24, 100BASE-1X, SDH, DSL, 802.11
+
+
+#### Understanding Binary Code
+
+Dotted decimal notations are based on the decimal number system, but computers use IP addresses in binary
+- Within an 8-bit octet, each bit position has a decimal value:
+  - A bit that is set to 0 always has a zero value
+  - A bit that is set to 1 can be converted to a decimal value
+  - The low-order bit represents a decimal value of 1
+  - The high-order bit represents a decimal value of 128
+- If all bits in an octet are set to 1, then the octets decimal value is 255, the highest possible value of an octet:
+  128 + 64 + 32 + 16 + 8 + 4 + 2 + 1
+
+
+#### Overview of IPv4 settings:
+
+| 1 |  1 |  1 |  1 |  1 |  1 |  1 |  1 |   8 Bit Octet |  
+|------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Bit 7 |  Bit 6 |  Bit 5 |  Bit 4 |  Bit 3 |  Bit 2 |  Bit 1 |  Bit 0 | |  
+| 2<sup>7</sup> |  2<sup>6</sup> |  2<sup>5</sup> |  2<sup>4</sup> |  2<sup>3</sup> |  2<sup>2</sup> |  2<sup>1</sup> |  2<sup>0</sup> | Exponent |
+| 128 |  64 |  32 |  16 |  8 |  4 |  2 |  1 | Decimal Value |
+
+8 bits = 1 byte
+
+
+
+- Each networked computer must be assigned a unique IPv4 address.
+- Network communication for a computer is directed to the IPv4 address of the computer
+- Each IPv4 address contains:
+  - Network ID, identifying the network
+  - Host ID, identifying the computer
+- The subnet mask identifies which part of the IPv4 address is the network ID (255) and which is the host ID (0)
+
+| IP Address | 172 | 16 | 0 | 10 |
+| ----- |  ----- |  ----- |  ----- |  ----- |
+| Subnet mask | 255 | 255 | 0 | 0 |
+| Network ID | **172** | **16** | 0 | 0 |
+| Host ID | 0 | 0 | **0** | **10** |
+
+
 
