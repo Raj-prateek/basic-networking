@@ -186,3 +186,71 @@ Broadcast: 10.255.255.255
 | Decimal | 128 | 64 | 32| 16 | 8 | 4 | 2 | 1 |
 | Subnet Mask | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255|
 
+
+Let's use Network: 172.16.0.0 Subet Mask: 255.255.252.0
+
+Determine the number of Hosts IP addresses available per subnet
+1. Convert the subnet mask to binary code
+2. Count the 0s in the subnet mask
+3. Using a calculator 2<sup>Number of 0s</sup>, then -2 = _____
+
+   Example:
+   1. 255.255.252.0 converted to binary is 11111111/11111111/11111100/00000000
+   2. There are 10 zeros in the subnet mask
+   3. On the calculator, 2<sup>10</sup> - 2  = 1022 IP address per subnet
+
+Determine the number of Networks available
+1. Convert the subnet mask to binary code.
+2. Exclude the default subnet mask bits.
+3. Count the remaining 1s in the subnet mask.
+4. Use a calculator 2<sup>number of 1s remaining</sup> = _____
+   Example:
+   1. 255.255.252.0 converted to binary is 11111111/111111111/11111100/00000000
+   2. There are 16 ones in the default subnet mask because addresses beginning with 172 are class B IP addresses, exclude those 11111111/11111111/`111111`00/00000000
+   3. Count the remaing ones.
+   4. 2<sup>6</sup> = 64 subnets
+
+Class A example
+
+IP: 10.0.0.0
+Subnet: 255.255.248.0
+
+Host IP calculation:
+1. 11111111/11111111/11111000/00000000
+2. 11 0s in the subnet mask
+3. 2<sup>11</sup> = 2046 Host IP address per subnet
+
+Number of Network available:
+1. As it's a Class A
+2. 111111111/`111111111`/`11111`000/000000000
+3. 13 1s in the subnet mask.
+4. 2<sup>13</sup> = 8192 subnets
+
+Class B Example
+
+IP Address: 172.16.244.0
+Subnet Mask: 255.255.224.0
+
+| Network ID | First IP address | Last IP address | Broadcast Address |
+| ---------- |  ---------- |  ---------- | ---------- |
+| 172.16.0.0 | 172.16.0.1 | 172.16.31.254 |  172.16.31.255 |
+| 172.16.32.0 | 172.16.32.1 |172.16.63.254 |  172.16.63.255 |
+| 172.16.64.0 | 172.16.64.1 | 172.16.95.254 |  172.16.95.255 |
+| 172.16.96.0 | 172.16.96.1 |172.16.127.254 |  172.16.127.255 |
+| 172.16.128.0 | 172.16.128.1 |172.16.191.254 |  172.16.191.255 |
+| 172.16.192.0 | 172.16.192.1 |172.16.243.254 |  172.16.243.255 |
+| 172.16.244.0 | 172.16.244.1 |172.16.255.254 |  172.16.255.255 |
+
+### Public and private addresses
+
+| Public | Private |
+| ------ | ------- |
+| Required by devices and hosts that connect directly to the intenet | Not routable on the internet eg 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16|
+| Must be globally unique | Can be assigned locally by an organization |
+| Routable on the Internet | must be translated to access the internet |
+| Must be assigned by IANA | |
+
+### Network address transaltion (NAT)
+
+With NAT, my internet service provide will assign me a public IP address, let say 27.1.54.42. Now, i have no control over that, as it is assigned by whoever my ISP is and that IP address is actually on the internet side, sometimes called a wan wide area network, modem etc. They connect to your internal network to the public network.
+Also it contains private IP 192.168.1.1. 
