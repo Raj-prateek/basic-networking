@@ -147,4 +147,42 @@ Dotted decimal notations are based on the decimal number system, but computers u
 | Host ID | 0 | 0 | **0** | **10** |
 
 
+##### Classful IP addressing
+
+**Class A**
+- Starting with 1 - 126
+- Subnet mask 255.0.0.0/8
+- 10.1.5.89 here 10 is the net id and 1,5, and 89 is the host id
+- 16777214 total IPs - 2<sup>24</sup> - 2
+
+**Class B**
+- Starting with 128-191
+- Subnet mask 255.255.0.0/16
+- 65,534 total IP's - 2<sup>16</sup> - 2
+
+**Class C**
+- Starting with 191-223
+- Subnet mask 255.255.255.0/24
+- 254 IP's - 2<sup>8</sup> - 2
+
+> /8,/16/24 is called as CIDR
+
+Number of IP's in the class = 2<sup>#0's in mask</sup> - 2
+
+**Why we subtract it from 2 ??**
+It's bcoz we have to IP's allready booked for net ID and Broadcast from mask.
+For example: 
+IP 10.0.0.0
+NET ID: 10.0.0.0
+Firt IP: 10.0.0.1
+Last IP: 10.255.255.254
+Broadcast: 10.255.255.255
+
+
+#### Subnet Mask
+
+| Binary | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ------ | ------ |  ------ |  ------ | ------ | ------ | ------ | ------ |  ------ |
+| Decimal | 128 | 64 | 32| 16 | 8 | 4 | 2 | 1 |
+| Subnet Mask | 128 | 192 | 224 | 240 | 248 | 252 | 254 | 255|
 
